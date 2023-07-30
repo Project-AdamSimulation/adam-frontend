@@ -9,8 +9,7 @@ registerCoreBlocks();
 function App() {
   return (
     <div className="App">
-      {/* <MainMenu></MainMenu> */}
-      <UserForm></UserForm>
+      <MainMenu></MainMenu>
     </div>
   );
 }
