@@ -127,10 +127,8 @@ export const MainMenu = () => {
                         </div>
                     ))}
                 </div>}
-                {showButton && <div className="add-container">
+                {showButton && <div className='button-container'>
                     <button className="add-button" onClick={addButtonClicked}>Add Person</button>
-                </div>}
-                {showButton && <div className='submit-container'>
                     <button className='submit-button'>Submit</button>
                 </div>}
             </div>
