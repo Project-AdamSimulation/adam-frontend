@@ -7,6 +7,9 @@ import "@quillforms/renderer-core/build-style/style.css";
 import '../styles/mainmenu.css';
 import '../styles/buttonStyle.css';
 import '../styles/list.css';
+import { WS_URL } from '../constants/constants';
+import { useWebSocket } from 'react-use-websocket/dist/lib/use-websocket';
+import { json } from 'react-router-dom';
 // import { setIsFieldValid } from '@quillforms/renderer-core/build-types/store/actions';
 // import { UserForm } from './person-form';
 // import { setIsSubmitting } from '@quillforms/renderer-core/build-types/store/actions';
@@ -24,6 +27,13 @@ export const MainMenu = () => {
     const [showList, setShowList] = useState(true)
     let tempList = userList;
     
+    const { sendMessage, sendJsonMessage, lastMessage, 
+        lastJsonMessage, readyState, getWebSocket } 
+    = 
+    useWebSocket(WS_URL, {
+        onOpen: () => alert('opened')
+    });
+
     function onSubmit(data) {
         console.log("HAHAHAHAHAHAHAHAH");
         console.log(data['answers']);
@@ -42,13 +52,20 @@ export const MainMenu = () => {
         setShowForm(false);
         setShowButton(true);
         setShowList(true);
-        // tempList.push()
     }
 
-    function addButtonClicked() {
+    function AddButtonClicked() {
         setShowList(false);
         setShowForm(true);
         setShowButton(false)
+    }
+
+    const SubmitButtonClicked = () => {
+        console.log("Submit Clicked");
+        console.log(json.toString(userList));
+        sendJsonMessage(json.toString(userList));
+        console.log("Convo starting");
+        console.log(lastMessage);
     }
 
 
@@ -128,8 +145,8 @@ export const MainMenu = () => {
                     ))}
                 </div>}
                 {showButton && <div className='button-container'>
-                    <button className="add-button" onClick={addButtonClicked}>Add Person</button>
-                    <button className='submit-button'>Submit</button>
+                    <button className="add-button" onClick={AddButtonClicked}>Add Person</button>
+                    <button className='submit-button' onClick={SubmitButtonClicked}>Submit</button>
                 </div>}
             </div>
     );
