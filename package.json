@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@quillforms/blocks": "^4.1.2",
     "@quillforms/react-renderer-utils": "^5.7.2",
     "@quillforms/renderer-core": "^5.5.0",
     "@testing-library/jest-dom": "^5.14.1",
