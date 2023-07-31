@@ -4,8 +4,9 @@ import { useEffect } from 'react';
 import { Form } from "@quillforms/renderer-core";
 import "@quillforms/renderer-core/build-style/style.css";
 // import { registerCoreBlocks } from "@quillforms/react-renderer-utils";
-import '../styles/buttonStyle.css'
-import '../styles/list.css'
+import '../styles/mainmenu.css';
+import '../styles/buttonStyle.css';
+import '../styles/list.css';
 // import { setIsFieldValid } from '@quillforms/renderer-core/build-types/store/actions';
 // import { UserForm } from './person-form';
 // import { setIsSubmitting } from '@quillforms/renderer-core/build-types/store/actions';
@@ -52,20 +53,18 @@ export const MainMenu = () => {
 
 
     return (
-            <div className='UserDisplay'>
-                {showList && <div className="list-container">
-                    {userList.map((item) => (
-                        <div key={item.id} className="list-item">
-                            <h2>{"Name: " + item.name}</h2>
-                            <p>{"Description: " + item.displayDescription}</p>
-                            <p></p>
-                        </div>
-                    ))}
-                </div>}
-                {showForm && <div className='Form' style={{ width: "100%", height: "100vh" }}>
+            <div className='screen'>
+                {showForm && <div className='Form'>
                     <Form
+                        
                         formId="1"
                         formObj={{
+                            theme: {
+                                backgroundColor: "#181818",
+                                questionsColor: "#f5f5f5",
+                                answersColor: "#64CCC5",
+                                buttonsBgColor: "#00ABB3"
+                            },
                             settings: {
                                 disableProgressBar: true
                             },
@@ -119,8 +118,20 @@ export const MainMenu = () => {
                         // }
                     />
                 </div>}
-                {showButton && <div className="button-container">
-                    <button className="bottom-right-button" onClick={addButtonClicked}>Click Me</button>
+                {showList && <div className="list-container">
+                    {userList.map((item) => (
+                        <div key={item.id} className="list-item">
+                            <h2>{"Name: " + item.name}</h2>
+                            <p>{"Description: " + item.displayDescription}</p>
+                            <p></p>
+                        </div>
+                    ))}
+                </div>}
+                {showButton && <div className="add-container">
+                    <button className="add-button" onClick={addButtonClicked}>Add Person</button>
+                </div>}
+                {showButton && <div className='submit-container'>
+                    <button className='submit-button'>Submit</button>
                 </div>}
             </div>
     );
