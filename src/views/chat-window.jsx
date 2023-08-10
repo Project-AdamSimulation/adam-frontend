@@ -3,8 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { WS_URL } from "../constants/constants";
 import { useWebSocket } from "react-use-websocket/dist/lib/use-websocket";
-import { useLocation, useNavigate } from "react-router-dom";
-import { useRef } from "react";
+import { useLocation } from "react-router-dom";
 // import '../styles/list.css';
 import "../styles/messages.css";
 import "../styles/mainmenu.css";
@@ -15,21 +14,7 @@ export const ChatWindow = () => {
   // console.log('location', location.state.list)
   let data = location.state.list;
   let tempHistory = messageHistory;
-  const { lastJsonMessage, lastMessage, sendMessage } = useWebSocket(WS_URL);
-  const messages = [
-    "Alex: Hello adam, how are you today?",
-    "Adam: Hello Alex, I am doing fine, thank you.",
-    "Alex: Hello adam, how are you today?",
-    "Adam: Hello Alex, I am doing fine, thank you.",
-    "Alex: Hello adam, how are you today?",
-    "Adam: Hello Alex, I am doing fine, thank you.",
-    "Alex: Hello adam, how are you today?",
-    "Adam: Hello Alex, I am doing fine, thank you.",
-    "Alex: Hello adam, how are you today?",
-    "Adam: Hello Alex, I am doing fine, thank you.",
-    "Alex: Hello adam, how are you today?",
-    "Adam: Hello Alex, I am doing fine, thank you.",
-  ];
+  const { lastMessage, sendMessage } = useWebSocket(WS_URL);
 
   useEffect(() => {
     // console.log("Did component mount");

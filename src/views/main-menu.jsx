@@ -2,21 +2,11 @@ import * as React from "react";
 import { useState } from "react";
 import { Form } from "@quillforms/renderer-core";
 import "@quillforms/renderer-core/build-style/style.css";
-// import { registerCoreBlocks } from "@quillforms/react-renderer-utils";
 import "../styles/mainmenu.css";
 import "../styles/buttonStyle.css";
 import "../styles/list.css";
-import { WS_URL } from "../constants/constants";
-import { useWebSocket } from "react-use-websocket/dist/lib/use-websocket";
 import { useNavigate } from "react-router-dom";
 import "./chat-window";
-// import { setIsFieldValid } from '@quillforms/renderer-core/build-types/store/actions';
-// import { UserForm } from './person-form';
-// import { setIsSubmitting } from '@quillforms/renderer-core/build-types/store/actions';
-// import { resetAnswers, setFieldAnswer } from '@quillforms/renderer-core/build-types/store/actions';
-// import { resetAnswers } from '@quillforms/renderer-core/build-types/store/actions';
-// import { completeForm } from '@quillforms/renderer-core/build-types/store/actions';
-// import { goToBlock } from '@quillforms/renderer-core/build-types/store/actions';
 
 export const MainMenu = () => {
   const [userList, setUserList] = useState([]);
@@ -26,22 +16,12 @@ export const MainMenu = () => {
   const navigate = useNavigate();
   let tempList = userList;
 
-  //   const { sendJsonMessage, lastJsonMessage } = useWebSocket(WS_URL, {
-  //     onOpen: () => alert("opened"),
-  //   });
-
   function onSubmit(data) {
-    console.log("HAHAHAHAHAHAHAHAH");
-    console.log(data["answers"]);
+
     let name = data["answers"]["kd12edg"]["value"];
     let description = data["answers"]["m35612edg"]["value"];
     let newPerson = { name: name, description: description };
-    // if (description.length < 20) {
-    //     newPerson.displayDescription = description;
-    // }
-    // else {
-    //     newPerson.displayDescription = description.substring(0, 20) + "..."
-    // }
+
     tempList.push(newPerson);
     setUserList(tempList);
     console.log(userList);
@@ -60,13 +40,9 @@ export const MainMenu = () => {
     console.log("Submit Clicked");
     console.log(userList);
     console.log("Stringified: ", JSON.stringify(userList));
-    // sendJsonMessage(json.toString(userList));
     console.log("Convo starting");
-    // sendJsonMessage(userList);
-    // console.log("Message: ", lastJsonMessage);
     let params = { list: JSON.stringify(userList) };
     navigate("/chat", { state: params });
-    // console.log(lastMessage);
   };
 
   return (
@@ -103,14 +79,14 @@ export const MainMenu = () => {
                   attributes: {
                     setMaxCharacters: true,
                     required: true,
-                    label: "Type a brief about the character",
+                    label: "Type a brief about the character (minimum 50 words)",
                   },
                 },
               ],
             }}
             onSubmit={(
               data,
-              { completeForm, goToBlock, setIsSubmitting, setIsReviewing }
+              { goToBlock, setIsSubmitting }
             ) => {
               setTimeout(() => {
                 console.log(data);
