@@ -1,7 +1,5 @@
 import { Form } from "@quillforms/renderer-core";
 import "@quillforms/renderer-core/build-style/style.css";
-import { registerCoreBlocks } from "@quillforms/react-renderer-utils";
-import { useFormAnswers } from "@quillforms/renderer-core";
 
 // registerCoreBlocks();
 export const UserForm = ({onSubmitFunction}) => {

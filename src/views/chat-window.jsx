@@ -23,6 +23,7 @@ export const ChatWindow = () => {
     // for (let val in data) console.log(data);
     console.log("Sent: Data as follows: ", data);
     // sendJsonMessage(data);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -31,6 +32,7 @@ export const ChatWindow = () => {
       tempHistory.push(lastMessage.data);
     }
     setMessageHistory(tempHistory);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lastMessage]);
 
   return (
