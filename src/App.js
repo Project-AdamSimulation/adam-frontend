@@ -1,9 +1,8 @@
-import logo from './logo.svg';
+
 import './App.css';
 import { BrowserRouter, Routes, Route, } from "react-router-dom"
 import { MainMenu } from './views/main-menu';
 import { registerCoreBlocks } from "@quillforms/react-renderer-utils";
-import { UserForm } from './views/person-form';
 import { ChatWindow } from './views/chat-window';
 
 registerCoreBlocks();
