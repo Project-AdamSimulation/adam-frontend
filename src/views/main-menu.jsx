@@ -99,18 +99,6 @@ export const MainMenu = () => {
                 onSubmit(data);
               }, 500);
             }}
-            // beforeGoingNext={
-            //     (
-            //         {setIsFieldValid, goNext, answers, currentBlockId, }
-            //     ) => {
-            //         console.log("----");
-            //         console.log(answers);
-            //         console.log("====");
-            //         answers = NaN;
-            //         // currentBlockId
-            //         goNext();
-            //     }
-            // }
           />
         </div>
       )}
