@@ -6,9 +6,10 @@ import { useWebSocket } from "react-use-websocket/dist/lib/use-websocket";
 import { useLocation } from "react-router-dom";
 import "../styles/messages.css";
 import "../styles/mainmenu.css";
+import "../styles/list.css";
 
 export const ChatWindow = () => {
-  const [messageHistory, setMessageHistory] = useState([]);
+  const [messageHistory, setMessageHistory] = useState(["Abcd", "Abcd", "Abcd", "Abcd", "Abcd", "Abcd", "Abcd", "Abcd", "Abcd", "Abcd", "Abcd", "Abcd", "Abcd", "Abcd", "Abcd", "Abcd", "Abcd", "Abcd"]);
   const location = useLocation();
   let data = location.state.list;
   let tempHistory = messageHistory;
@@ -35,11 +36,14 @@ export const ChatWindow = () => {
     <div className="screen">
       <div className="list-container">
         {messageHistory.length > 0 ? (
-          <div className="message">
+            <div>
             {messageHistory.map((item) => (
-              <h2>{item}</h2>
+                <div className="message">
+                  <h2>{item}</h2>
+                </div>
             ))}
-          </div>
+            </div>
+          
           ) : null}  
       </div>
     </div>
