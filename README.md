@@ -17,7 +17,7 @@ The project then connects to a backend server hosted on render using a websocket
 
 ## Some Backstory
 
-I first had the idea for this project when I was thinking about **trains of thought**, and how sometimes one thought can organically lead into more unique, different thoughts which often times turns into daydreaming. I wanted to replicate that using OpenAI's GPT3 API where I fed its own outputs into itself using **Node** and some clever **prompts**.
+I first had the idea for this project when I was thinking about **trains of thought**, and how sometimes one thought can organically lead into more unique, different thoughts which often times turns into daydreaming. I wanted to replicate that using **OpenAI's GPT3 API** where I fed its own outputs into itself using **Node** and some clever **prompts**.
 
 While the project itself does have limited practical use, I still worked on it as an interesting experiment on the nature of human conversations and thought, I also saw it as a learning opportunity to learn more about **GPT3** and **prompt engineering**.
 
