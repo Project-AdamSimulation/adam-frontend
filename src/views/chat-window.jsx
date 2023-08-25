@@ -9,7 +9,7 @@ import "../styles/mainmenu.css";
 import "../styles/list.css";
 
 export const ChatWindow = () => {
-  const [messageHistory, setMessageHistory] = useState(["Abcd", "Abcd", "Abcd", "Abcd", "Abcd", "Abcd", "Abcd", "Abcd", "Abcd", "Abcd", "Abcd", "Abcd", "Abcd", "Abcd", "Abcd", "Abcd", "Abcd", "Abcd"]);
+  const [messageHistory, setMessageHistory] = useState([]);
   const location = useLocation();
   let data = location.state.list;
   let tempHistory = messageHistory;
